@@ -8,9 +8,9 @@ function getTriangle() {
     var nr1, nr2, nr3, result;
 
     //get the number values from the input fields
-    nr1 = document.getElementById('nr1').value;
-    nr2 = document.getElementById('nr2').value;
-    nr3 = document.getElementById('nr3').value;
+    nr1 = parseFloat(document.getElementById('nr1').value);
+    nr2 = parseFloat(document.getElementById('nr2').value);
+    nr3 = parseFloat(document.getElementById('nr3').value);
     
     result = document.getElementById('result');
      
@@ -24,19 +24,19 @@ function getTriangle() {
         result.style.color = "#bc960b";
         result.style.fontSize = "22px";
     }
+
+    // Make sure the triangle exists 
+    function checkTriangle(a, b, c) {
+        if (a + b > c && b + c > a && a + c > b) {
+            getTypeTriangle(nr1, nr2, nr3);
+        }
+        else {
+            alert("Triangle does not exixt. TIP: The sum of 2 sides should be greater than the third side!");
+            return false;
+        }
+    }
+
 }
-
-
-// Make sure the triangle can exist 
-function checkTriangle(a, b, c) {
-  
-    if (a + b > c && b + c > a && a + c > b) {
-        getTypeTriangle(a, b, c)
-    }
-    else {
-        return result.innerHTML = "Triangle does not exixt";
-    }
-  }
 
 
 //define and get the given triangle's type
@@ -60,4 +60,3 @@ $('.js--wp--row').waypoint(function(direction){
 }, {
     offset: '75%'
 });
-
