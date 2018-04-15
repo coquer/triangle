@@ -1,3 +1,8 @@
+//get the button, display a triangle after cklicking on it
+var btnGetTriangle = document.getElementById('btnGetTriangle');
+btnGetTriangle.addEventListener("click", getTriangle);
+
+//create triangle type and validate it
 function getTriangle() {
 
     var nr1, nr2, nr3, result;
@@ -15,11 +20,24 @@ function getTriangle() {
         result.style.color = "#ff0000";
     }
     else {
-        getTypeTriangle(nr1, nr2, nr3);
+        checkTriangle(nr1, nr2, nr3);
         result.style.color = "#bc960b";
         result.style.fontSize = "22px";
     }
 }
+
+
+// Make sure the triangle can exist 
+function checkTriangle(a, b, c) {
+  
+    if (a + b > c && b + c > a && a + c > b) {
+        getTypeTriangle(a, b, c)
+    }
+    else {
+        return result.innerHTML = "Triangle does not exixt";
+    }
+  }
+
 
 //define and get the given triangle's type
 function getTypeTriangle(a, b, c) {
@@ -34,11 +52,6 @@ function getTypeTriangle(a, b, c) {
         return result.innerHTML = "Error";  
     }
 }
-
-//get the button, display a triangle after cklicking on it
-var btnGetTriangle = document.getElementById('btnGetTriangle');
-btnGetTriangle.addEventListener("click", getTriangle);
-
 
 
 //animate the main row
